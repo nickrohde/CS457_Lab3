@@ -1,0 +1,351 @@
+
+
+Range: [5, 10]
+N=20
+Hidden neurons: 1
+Train iterations: 100
+
+Test Error: [  6.40078600e-05]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 1
+Train iterations: 100
+
+Test Error: [  1.18499662e-05]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 1
+Train iterations: 100
+
+Test Error: [  1.53018736e-05]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 1
+Train iterations: 100
+
+Test Error: [ 0.47716308]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 1
+Train iterations: 100
+
+Test Error: [ 0.17745219]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 2
+Train iterations: 100
+
+Test Error: [  2.72786723e-05]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 2
+Train iterations: 100
+
+Test Error: [  8.09389997e-06]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 2
+Train iterations: 100
+
+Test Error: [ 0.00107113]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 2
+Train iterations: 100
+
+Test Error: [ 0.00380131]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 2
+Train iterations: 100
+
+Test Error: [ 0.02937735]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 3
+Train iterations: 100
+
+Test Error: [ 0.00121667]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 3
+Train iterations: 100
+
+Test Error: [ 0.00469415]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 3
+Train iterations: 100
+
+Test Error: [ 0.00012156]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 3
+Train iterations: 100
+
+Test Error: [ 0.01278859]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 3
+Train iterations: 100
+
+Test Error: [ 0.02794971]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 4
+Train iterations: 100
+
+Test Error: [ 0.00199748]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 4
+Train iterations: 100
+
+Test Error: [ 0.0012994]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 4
+Train iterations: 100
+
+Test Error: [ 0.03560997]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 4
+Train iterations: 100
+
+Test Error: [ 0.0263086]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 4
+Train iterations: 100
+
+Test Error: [ 0.05942028]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 5
+Train iterations: 100
+
+Test Error: [  5.86347815e-05]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 5
+Train iterations: 100
+
+Test Error: [ 0.19231413]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 5
+Train iterations: 100
+
+Test Error: [ 0.01318217]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 5
+Train iterations: 100
+
+Test Error: [ 0.00412808]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 5
+Train iterations: 100
+
+Test Error: [ 0.01079655]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 6
+Train iterations: 100
+
+Test Error: [ 0.00098178]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 6
+Train iterations: 100
+
+Test Error: [ 0.00512568]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 6
+Train iterations: 100
+
+Test Error: [ 0.00092613]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 6
+Train iterations: 100
+
+Test Error: [ 0.00016437]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 6
+Train iterations: 100
+
+Test Error: [ 0.16692837]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 7
+Train iterations: 100
+
+Test Error: [ 0.00625687]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 7
+Train iterations: 100
+
+Test Error: [ 0.00355535]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 7
+Train iterations: 100
+
+Test Error: [ 0.00297936]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 7
+Train iterations: 100
+
+Test Error: [ 0.00291266]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 7
+Train iterations: 100
+
+Test Error: [ 0.00288197]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 8
+Train iterations: 100
+
+Test Error: [ 0.06701536]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 8
+Train iterations: 100
+
+Test Error: [ 0.0085676]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 8
+Train iterations: 100
+
+Test Error: [ 0.01518959]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 8
+Train iterations: 100
+
+Test Error: [ 0.05481072]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 8
+Train iterations: 100
+
+Test Error: [ 0.00546764]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 9
+Train iterations: 100
+
+Test Error: [  5.97645766e-05]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 9
+Train iterations: 100
+
+Test Error: [ 0.07465546]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 9
+Train iterations: 100
+
+Test Error: [ 0.03529941]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 9
+Train iterations: 100
+
+Test Error: [ 0.02161928]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 9
+Train iterations: 100
+
+Test Error: [ 0.01197446]
+
+Range: [5, 10]
+N=20
+Hidden neurons: 10
+Train iterations: 100
+
+Test Error: [ 0.05002478]
+
+Range: [5, 10]
+N=40
+Hidden neurons: 10
+Train iterations: 100
+
+Test Error: [ 0.06116787]
+
+Range: [5, 10]
+N=60
+Hidden neurons: 10
+Train iterations: 100
+
+Test Error: [ 0.0407549]
+
+Range: [5, 10]
+N=80
+Hidden neurons: 10
+Train iterations: 100
+
+Test Error: [ 0.01582442]
+
+Range: [5, 10]
+N=100
+Hidden neurons: 10
+Train iterations: 100
+
+Test Error: [ 0.25938981]
