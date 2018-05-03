@@ -1,0 +1,214 @@
+\documentclass{article}
+
+% !TeX spellcheck = en_US 
+
+\title{CS457 Project 3}
+\author{Nick Rohde}
+
+\usepackage{subcaption}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[labelfont=bf]{caption}
+
+\hypersetup
+{
+	colorlinks=true,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=blue,
+	linktoc=all,
+	linkcolor=blue,
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Introduction} \label{S1}
+This project revolved around how the accuracy of a Neural Network changes as the number of nodes in the hidden layer varies. Four simple mathematical functions were implemented and networks with 1-10 hidden neurons trained to discover which performs best. The functions used for this were:\\
+
+\begin{minipage}{\linewidth}
+	\centering
+	\begin{tabular}{cc}\label{EQ}
+		$f(x) = \frac{1}{x}$ & $0 < x \le 100$	\\
+		& \\
+		$g(x) = log_{10}(x)$ & $0 < x \le 10$	\\
+		& \\
+		$h(x) = e^{-x} $ & $0 < x \le 10$	\\
+		&\\
+		$l(x) = sin(x)$ & $0 \le x \le \frac{\pi}{2}$	\\
+	\end{tabular}
+\end{minipage}
+
+\section{Experimentation} \label{S2}
+For the experiments, the neural networks were trained on different sizes of training, validation, and testing sets. An equally distributed set of N points in the function's domain was generated, and then randomly distributed among the three sets; the 5 sizes for experimentation were 20, 40, 60, 80, 100, which were divided roughly $60:20:20$ over the training, validation, and testing sets, respectively. These sets were sufficiently large to allow the network to form an understanding of the function, without over-training it; on top of this, due to the small domain, generating larger sets would've put points extremely close to each other.\\
+\\The networks were trained with a back-propagation method that updated weights after the entire training set had been evaluated, training was stopped either after 100 iterations -- though they all stopped after at most 3 iterations -- or once the network stopped improving -- this was defined as a less than 0.5\% increase in accuracy of two consecutive training iterations (i.e. $error_{i-1} - error_{i} < 0.005 \implies stop$).\\
+\\The experimentation data displayed below shows networks with 1-10 hidden neurons, networks with more neurons were tested, however, after 10 there was absolutely no increase in performance, thus, they were omitted to avoid redundancy.
+
+
+\section{Data} \label{S3}
+This section displays the numerical data from the experimentation, discussed in the \hyperref[S4]{Analysis section}, as well as graphical representations (best and worst) of the tests run on the neural networks.\\
+
+	\subsection{Reciprocal Function}
+		\begin{minipage}{\linewidth}
+			\centering
+			\captionof{table}{Testint Set Results}
+			\begin{tabular}{c|ccccc}\label{T1}
+				Test Set Size:  & 4 & 9 & 14 & 19 & 24 \\
+				Hidden Neurons  & \multicolumn{5}{c}{Testing Error (\%)} \\
+				\hline\noalign{\smallskip}
+				1	& $1.969\times 10^{-5}$	& $2.269\times 10^{-5}$ & $5.813\times 10^{-5}$ & $7.642\times 10^{-5}$ & $9.335\times 10^{-5}$ \\
+				2	& $3.449\times 10^{-5}$	& $3.220\times 10^{-4}$ & $9.165\times 10^{-3}$ & $3.944\times 10^{-3}$ & $2.041\times 10^{-4}$ \\
+				3	& $5.131\times 10^{-4}$	& $6.060\times 10^{-5}$ & $1.951\times 10^{-4}$ & $7.398\times 10^{-3}$ & $3.248\times 10^{-4}$ \\
+				4	& $8.250\times 10^{-6}$	& $1.048\times 10^{-4}$ & $1.710\times 10^{-3}$ & $1.424\times 10^{-2}$ & $1.745\times 10^{-4}$ \\
+				5	& $2.432\times 10^{-3}$	& $1.354\times 10^{-4}$ & $1.187\times 10^{-2}$ & $9.994\times 10^{-4}$ & $4.318\times 10^{-4}$ \\
+				6	& $6.561\times 10^{-3}$	& $1.328\times 10^{-3}$ & $3.738\times 10^{-3}$ & $1.473\times 10^{-4}$ & $1.387\times 10^{-2}$ \\
+				7	& $8.628\times 10^{-4}$	& $5.611\times 10^{-5}$ & $7.416\times 10^{-4}$ & $1.220\times 10^{-2}$ & $1.528\times 10^{-2}$ \\
+				8	& $4.535\times 10^{-5}$	& $2.885\times 10^{-3}$ & $1.723\times 10^{-3}$ & $1.194\times 10^{-2}$ & $8.071\times 10^{-5}$ \\
+				9	& $8.835\times 10^{-5}$	& $5.035\times 10^{-3}$ & $1.460\times 10^{-3}$ & $9.038\times 10^{-3}$ & $9.236\times 10^{-3}$ \\
+				10	& $5.811\times 10^{-3}$	& $2.232\times 10^{-4}$ & $3.422\times 10^{-3}$ & $4.022\times 10^{-3}$ & $3.729\times 10^{-2}$ \\
+			\end{tabular}
+		\end{minipage}	
+		
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{inverse_1_60.png}
+			\caption{Worst Performance, 1 Neuron, Training with 14 Points.}
+			\label{F_I_1}
+		\end{figure}
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{inverse_3_80.png}
+			\caption{Best Performance, 3 Neurons, Training with 19 Points.}
+			\label{F_I_2}
+		\end{figure}
+\pagebreak
+	\subsection{Common Log}
+		\begin{minipage}{\linewidth}
+			\centering
+			\captionof{table}{Testint Set Results}
+			\begin{tabular}{c|ccccc}\label{T2}
+				Test Set Size:  & 4 & 9 & 14 & 19 & 24 \\
+				Hidden Neurons  & \multicolumn{5}{c}{Testing Error (\%)} \\
+				\hline\noalign{\smallskip}
+				1	& $8.880\times 10^{-3}$	& $3.302\times 10^{-2}$ & $4.209\times 10^{-1}$ & $4.787\times 10^{-2}$ & $1.458\times 10^{-1}$ \\
+				2	& $5.599\times 10^{-3}$	& $5.048\times 10^{-5}$ & $4.172\times 10^{-2}$ & $9.343\times 10^{-2}$ & $6.543\times 10^{-4}$ \\
+				3	& $9.566\times 10^{-2}$	& $4.443\times 10^{-2}$ & $1.382\times 10^{-1}$ & $2.125\times 10^{-2}$ & $1.996\times 10^{-1}$ \\
+				4	& $4.003\times 10^{-2}$	& $2.879\times 10^{-1}$ & $8.304\times 10^{-2}$ & $1.463\times 10^{-1}$ & $1.712\times 10^{-2}$ \\
+				5	& $1.222\times 10^{-1}$	& $3.596\times 10^{-2}$ & $1.585\times 10^{-1}$ & $5.437\times 10^{-3}$ & $8.538\times 10^{-1}$ \\
+				6	& $2.191\times 10^{-2}$	& $4.096\times 10^{-3}$ & $4.012\times 10^{-2}$ & $5.932\times 10^{-2}$ & $5.855\times 10^{-2}$ \\
+				7	& $2.216\times 10^{-2}$	& $1.615\times 10^{-2}$ & $5.316\times 10^{-2}$ & $4.213\times 10^{-2}$ & $3.900\times 10^{-2}$ \\
+				8	& $3.135\times 10^{-3}$	& $5.961\times 10^{-2}$ & $1.635\times 10^{-2}$ & $2.911\times 10^{-2}$ & $1.201\times 10^{-1}$ \\
+				9	& $1.701\times 10^{-1}$	& $7.511\times 10^{-4}$ & $5.361\times 10^{-2}$ & $2.938\times 10^{-1}$ & $5.063\times 10^{-2}$ \\
+				10	& $3.419\times 10^{-2}$	& $9.448\times 10^{-2}$ & $6.656\times 10^{-3}$ & $1.928\times 10^{-1}$ & $1.548\times 10^{-2}$ \\
+			\end{tabular}
+		\end{minipage}
+	
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{log_5_20.png}
+			\caption{Worst Performance, 5 Neurons, Training with 4 Points.}
+			\label{F_L_1}
+		\end{figure}
+	\pagebreak
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{log_2_40.png}
+			\caption{Best Performance, 2 Neurons, Training with 9 Points.}
+			\label{F_L_2}
+		\end{figure}
+	
+	\subsection{Exponential Function}
+		\begin{minipage}{\linewidth}
+			\centering
+			\captionof{table}{Testint Set Results}
+			\begin{tabular}{c|ccccc}\label{T3}
+				Test Set Size:  & 4 & 9 & 14 & 19 & 24 \\
+				Hidden Neurons  & \multicolumn{5}{c}{Testing Error (\%)} \\
+				\hline\noalign{\smallskip}
+				1	& $6.400\times 10^{-5}$	& $1.184\times 10^{-5}$ & $1.530\times 10^{-5}$ & $4.771\times 10^{-1}$ & $1.774\times 10^{-1}$ \\
+				2	& $2.727\times 10^{-5}$	& $8.093\times 10^{-6}$ & $1.071\times 10^{-3}$ & $3.801\times 10^{-3}$ & $2.937\times 10^{-2}$ \\
+				3	& $1.216\times 10^{-3}$	& $4.694\times 10^{-3}$ & $1.215\times 10^{-4}$ & $1.278\times 10^{-3}$ & $2.794\times 10^{-2}$ \\
+				4	& $1.997\times 10^{-3}$	& $1.299\times 10^{-3}$ & $3.560\times 10^{-3}$ & $2.630\times 10^{-2}$ & $5.942\times 10^{-2}$ \\
+				5	& $5.863\times 10^{-5}$	& $1.923\times 10^{-1}$ & $1.318\times 10^{-2}$ & $4.128\times 10^{-3}$ & $1.079\times 10^{-2}$ \\
+				6	& $9.817\times 10^{-4}$	& $5.125\times 10^{-3}$ & $9.261\times 10^{-4}$ & $1.643\times 10^{-4}$ & $1.669\times 10^{-1}$ \\
+				7	& $6.256\times 10^{-3}$	& $3.555\times 10^{-3}$ & $2.979\times 10^{-3}$ & $2.912\times 10^{-3}$ & $2.881\times 10^{-3}$ \\
+				8	& $6.701\times 10^{-2}$	& $8.567\times 10^{-3}$ & $1.518\times 10^{-2}$ & $5.481\times 10^{-2}$ & $5.467\times 10^{-3}$ \\
+				9	& $5.976\times 10^{-5}$	& $7.465\times 10^{-2}$ & $3.529\times 10^{-2}$ & $2.161\times 10^{-2}$ & $1.197\times 10^{-2}$ \\
+				10	& $5.002\times 10^{-2}$	& $6.116\times 10^{-2}$ & $4.075\times 10^{-2}$ & $1.582\times 10^{-2}$ & $2.593\times 10^{-1}$ \\
+			\end{tabular}
+		\end{minipage}
+	
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{e_9_100.png}
+			\caption{Worst Performance, 9 Neurons, Training with 24 Points.}
+			\label{F_E_1}
+		\end{figure}
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{e_1_60.png}
+			\caption{Best Performance, 1 Neuron, Training with 14 Points.}
+			\label{F_E_2}
+		\end{figure}
+\pagebreak
+	\subsection{Sine Wave}
+		\begin{minipage}{\linewidth}
+			\centering
+			\captionof{table}{Testint Set Results}
+			\begin{tabular}{c|ccccc}\label{T4}
+				Test Set Size:  & 4 & 9 & 14 & 19 & 24 \\
+				Hidden Neurons  & \multicolumn{5}{c}{Testing Error (\%)} \\
+				\hline\noalign{\smallskip}
+				1	& $1.785\times 10^{-2}$	& $1.527\times 10^{0}$ & $1.765\times 10^{-1}$ & $8.301\times 10^{-1}$ & $2.577\times 10^{0}$ \\
+				2	& $7.558\times 10^{-3}$	& $4.831\times 10^{-3}$ & $7.151\times 10^{0}$ & $1.159\times 10^{0}$ & $2.391\times 10^{-1}$ \\
+				3	& $4.898\times 10^{-1}$	& $4.249\times 10^{-1}$ & $6.471\times 10^{-2}$ & $2.268\times 10^{0}$ & $6.794\times 10^{-2}$ \\
+				4	& $3.182\times 10^{-1}$	& $8.587\times 10^{-1}$ & $2.628\times 10^{-1}$ & $2.270\times 10^{-1}$ & $4.345\times 10^{0}$ \\
+				5	& $4.226\times 10^{-2}$	& $9.639\times 10^{-1}$ & $5.250\times 10^{-2}$ & $3.292\times 10^{-2}$ & $6.997\times 10^{-1}$ \\
+				6	& $7.339\times 10^{-3}$	& $4.093\times 10^{-1}$ & $4.379\times 10^{-2}$ & $3.230\times 10^{-1}$ & $6.355\times 10^{-1}$ \\
+				7	& $1.442\times 10^{-1}$	& $6.364\times 10^{-1}$ & $1.250\times 10^{-1}$ & $3.117\times 10^{-2}$ & $5.872\times 10^{0}$ \\
+				8	& $5.624\times 10^{-1}$	& $1.332\times 10^{-2}$ & $1.152\times 10^{0}$ & $1.672\times 10^{0}$ & $3.276\times 10^{-1}$ \\
+				9	& $4.225\times 10^{-1}$	& $3.088\times 10^{-2}$ & $4.412\times 10^{-2}$ & $7.927\times 10^{-1}$ & $3.720\times 10^{0}$ \\
+				10	& $2.334\times 10^{-2}$	& $2.072\times 10^{-2}$ & $3.820\times 10^{-1}$ & $5.174\times 10^{-3}$ & $8.338\times 10^{-3}$ \\
+			\end{tabular}
+		\end{minipage}
+	
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{sine_3_20.png}
+			\caption{Worst Performance, 3 Neurons, Training with 4 Points.}
+			\label{F_S_1}
+		\end{figure}
+		\begin{figure}[!ht]
+			\includegraphics[width=400pt]{sine_10_100.png}
+			\caption{Best Performance, 10 Neurons, Training with 24 Points.}
+			\label{F_S_2}
+		\end{figure}
+
+\pagebreak
+\section{Analysis}\label{S4}
+	In this section, we will discuss the \hyperref[S3]{Data} from the previous section. \\ 
+	\\The first observation that can be made from the data is that it appears that the accuracy of the network depends more on the amount of training data it receives, as well as the spread of this data over the domain, rather than the number of neurons. As long as there are enough neurons -- which appears to depend on the function being classified -- to generalise the function, the data was what distinguished between a 'good' and 'bad' classifier. This is supported by the fact that all networks (regardless of function) trained with 6 data points were unable to properly generalise the function; though having more neurons did not hurt the networks trained on 6 points, the quality of the predictions that they made was terrible (almost always straight lines).\\
+	\\ In the case of functions with a small domain, it is interesting to note that overfitting likely occurred in the larger sets of training data. \hyperref[T2]{The Common Log}, \hyperref[T3]{Exponential Function}, and \hyperref[T4]{Sine Wave} all showed higher errors with the largest training set, and lower errors with the smaller ones; thus, we can assume that some amount of overfitting occurred in these cases. Though, it should be mentioned that the Sine Wave had its best prediction done by the networks with 10 neurons, and 80/100 data point sets. \\
+	
+	\subsection{Reciprocal Function}\label{S41}
+		The \hyperref[EQ]{reciprocal function}, $f(x)$, was one of the easiest functions for the network to learn. With a single neuron, the network was not able to properly classify the function and instead only guessed straight lines somewhere in the range (shows in \hyperref[F_I_1]{Figure 1}). This continued with 2 neurons. However, with 3 neurons, the network was able to understand that the function was steeply decreasing at first, and then a straight line. Though the network was not able to predict all values perfectly, it managed to classify the majority of points well with 3 neurons (or more), this can be seen in \hyperref[F_I_2]{Figure 2} which shows the network with 3 hidden neurons, trained and tested on 19 points.\\ Interestingly, adding more neurons did not significantly improve the performance of the network; 3 neurons was all that was needed in order to approximate $f(x)$, and more than that changed little about the quality of the predictions made by the network.\\ 
+		\\ Thus, to predict the value of $f(x)$, it appears that having 3 neurons is sufficient in our domain and any more neurons only increases the time investment for training, but not the accuracy. 
+	
+	\subsection{Common Log}\label{S42}
+		The \hyperref[EQ]{Common Log}, $g(x)$, was by far the easiest function to learn for the network; on top of that, it also achieve the best result in terms of accuracy, by a long shot. With 2 neurons, and 9 test points the network achieved an error of less than $10^{-5}$, the lowest error achieved by any other classifier, \hyperref[F_L_2]{Figure 4} shows the plot of expected versus actual points, and here we can see how well the network predicted value of $g(x)$. All predicted values are almost a perfect match to the actual value, with little variance. Similarly to the reciprocal function, adding more neurons beyond the best performance only increased the total error, and did not provide a significant improvement in terms of prediction accuracy.\\
+		\\ What is particularly interesting about this function is that adding extra neurons was directly correlated to increased error. The reciprocal function only stopped improving after 3 neurons and, at times, performed worse. With this function, on the other hand, the prediction only got worse after 2 neurons, and did not recover the accuracy it achieved with 2 neurons in any trial.\\ Hence, we can conclude that predicting $g(x)$ is best done with 2 Neurons, and a no more, as this clearly results in a worse classifier. 
+	
+	\subsection{Exponential Function}\label{S43}
+		The \hyperref[EQ]{Exponential Function}, $h(x)$, was by far the most interesting visually. The network for this function performed extremely well with only a single hidden neuron, which was quite unexpected since this function is fairly similar to \hyperref[S43]{the reciprocal function}, which did not perform as well with a single neuron. Furthermore, much like \hyperref[S43]{the common log}, it peaked at 1 neuron, and then decayed after that almost completely; close to every classifier that used more than 1 neuron made completely erroneousness predictions -- the error only evened out because of the averaging \\
+		\\ Once again, prediction of $h(x)$ is best done with fewer neurons than more, just this time the effect of more is much worse than before, and we can conclude that using 2 neurons is both sufficient for accurate predictions of $h(x)$ and optimal within our domain.
+		
+	\subsection{Sine Wave}\label{S44}
+		The \hyperref[EQ]{Sine Wave}, $l(x)$, was the most challenging for the classifier to correctly predict. As can be seen in \hyperref[T4]{Table 4} the error was very high for all numbers of hidden neurons. One interesting part to note is that this was the only function where 10 neurons resulted in the best results -- 5 neurons also did very well, but shifted the sine wave up by a small factor. In \hyperref[F_S_2]{Figure 8} we can see the best result was still not perfect, however, extra neurons did not change this; the classifiers were unable to get the curvature of the wave correctly. To accurately predict sine, it is most likely necessary to add an additional hidden layer to the network, though this was not verified.\\
+	
+\section{Implementation}\label{S5}
+	Experiments were conducted with a modified version of 'sinewave.py' and 'mlp.py', both from the textbook (Machine Learning: An Algorithmic Perspective, Marsland, 2015, 2nd Edition, Chapter 4).
+
+
+\end{document}
